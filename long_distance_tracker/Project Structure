@@ -1,0 +1,38 @@
+long_distance_tracker/
+│
+├── fastapi/
+│   ├── main.py
+│   ├── models.py
+│   ├── routes.py
+│   ├── state.py
+│   └── requirements.txt
+│
+├── flask/
+│   ├── app.py
+│   ├── models.py
+│   ├── routes.py
+│   ├── state.py
+│   └── requirements.txt
+│
+├── node_express/
+│   ├── index.js
+│   ├── routes.js
+│   ├── models.js
+│   ├── state.js
+│   └── package.json
+│
+├── rust_actix/
+│   ├── src/
+│   │   ├── main.rs
+│   │   ├── models.rs
+│   │   ├── routes.rs
+│   │   └── state.rs
+│   └── Cargo.toml
+│
+├── docs/
+│   ├── toolkit.md
+│   └── ai_prompt_journal.md
+│
+├── docker-compose.yml
+├── openapi.yaml
+└── README.md

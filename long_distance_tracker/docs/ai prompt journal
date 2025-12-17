@@ -1,0 +1,78 @@
+# AI Prompt Journal 
+
+## Purpose
+
+This document records notable AI prompts, the intent behind them, which model/assistant was used, key outputs, and follow-up actions. Use it to keep track of interactions, reproduce results, and improve prompts over time.
+
+---
+
+## How to use
+
+- Add a new entry for each distinct prompt or prompting session.
+- Keep entries concise and focused: record the prompt, context, goal, model, and outcome.
+- Link to related files, commits, or issues when applicable.
+
+---
+
+## Entry template
+
+```
+Date: YYYY-MM-DD
+Time: HH:MM (local)
+Author: <name or role>
+Assistant: GitHub Copilot (model: Raptor mini (Preview))
+Intent: Short description of the goal
+Prompt: The exact prompt text used
+Context: Short bullets describing repository files, constraints, or relevant facts
+Output summary: Short result or excerpt (link to file if applicable)
+Follow-up: Next steps or unresolved items
+Tags: #bugfix #doc #refactor #question
+```
+
+---
+
+## Example entries
+
+### 1) Create `docs/toolkit.md` (2025-12-17)
+
+Date: 2025-12-17
+Time: 10:02
+Author: Bruno
+Assistant: GitHub Copilot (model: Raptor mini (Preview))
+Intent: Create a clear repository toolkit documentation describing each implementation and how to run them
+Prompt: "create a toolkit.md for this file"
+Context:
+- Repo contains FastAPI, Flask, Node+Express, Rust Actix implementations
+- `openapi.yaml` defines the API contract
+Output summary: Added `docs/toolkit.md` with overview, quick-start commands, API examples, troubleshooting, and contribution notes (file saved).
+Follow-up: Offer to add Postman collection or run scripts (user accepted next to create an AI prompt journal)
+Tags: #doc #onboarding
+
+### 2) Create `docs/ai prompt journal` (2025-12-17)
+
+Date: 2025-12-17
+Time: 10:12
+Author: Bruno
+Assistant: GitHub Copilot (model: Raptor mini (Preview))
+Intent: Create an AI Prompt Journal template and add example entries
+Prompt: "create a ai prompt journal for this file"
+Context:
+- `docs/toolkit.md` had just been created
+- File `docs/ai prompt journal` existed but was empty
+Output summary: Populated `docs/ai prompt journal` with purpose, usage, template, and two example entries (including the toolkit record).
+Follow-up: Keep recording future prompt sessions and optionally add automation to append entries from a canonical log
+Tags: #doc #process
+
+---
+
+## Tips for better prompts 
+
+- Be explicit about the desired format (e.g., "Create a markdown file with headings and examples").
+- Provide repository context or relevant filenames.
+- If the output will be edited programmatically, request machine-friendly formats (JSON, YAML, or clear templates).
+- When iterating, include the previous assistant response for continuity.
+
+---
+
+Happy journaling — track what works and refine prompts over time! 
+

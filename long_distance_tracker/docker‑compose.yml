@@ -1,0 +1,51 @@
+version: "3.9"
+
+services:
+  fastapi:
+    build: ./fastapi
+    container_name: tracker_fastapi
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./fastapi:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  node_express:
+    build: ./node_express
+    container_name: tracker_node
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./node_express:/app
+    command: node index.js
+
+  flask:
+    build: ./flask
+    container_name: tracker_flask
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./flask:/app
+    command: python app.py
+
+  rust_actix:
+    build: ./rust_actix
+    container_name: tracker_rust
+    ports:
+      - "8003:8003"
+    volumes:
+      - ./rust_actix:/app
+    command: cargo run
+  go_gin:
+    build: ./go_gin 
+    container_name: tracker_go
+    ports:
+      - "8004:8004"
+    volumes:
+      - ./go_gin:/app     
+    command: go run main.go 
+  django:
+    build: ./django 
+    container_name: tracker_django
+    ports:
+      - "8005:8005" 

@@ -1,0 +1,124 @@
+openapi: 3.0.3
+info:
+  title: Long Distance Tracker API
+  version: 1.0.0
+  description: API for tracking long-distance activities (runs, rides, etc.)
+
+servers:
+  - url: http://localhost:8000
+    description: FastAPI
+  - url: http://localhost:8001
+    description: Node + Express
+  - url: http://localhost:8002
+    description: Flask
+  - url: http://localhost:8003
+    description: Rust Actix
+
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+
+  /tracks:
+    post:
+      summary: Create a new track entry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TrackCreate"
+      responses:
+        "201":
+          description: Track created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Track"
+
+    get:
+      summary: List tracks for a user
+      parameters:
+        - in: query
+          name: user_id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of tracks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Track"
+
+  /stats:
+    get:
+      summary: Get aggregated stats for a user
+      parameters:
+        - in: query
+          name: user_id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Stats for the user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Stats"
+
+components:
+  schemas:
+    TrackCreate:
+      type: object
+      required:
+        - user_id
+        - distance_km
+        - duration_minutes
+        - date
+      properties:
+        user_id:
+          type: string
+        distance_km:
+          type: number
+        duration_minutes:
+          type: number
+        date:
+          type: string
+          format: date-time
+
+    Track:
+      allOf:
+        - $ref: "#/components/schemas/TrackCreate"
+        - type: object
+          properties:
+            id:
+              type: string
+
+    Stats:
+      type: object
+      properties:
+        user_id:
+          type: string
+        total_distance_km:
+          type: number
+        total_duration_minutes:
+          type: number
+        average_pace_min_per_km:
+          type: number
+          nullable: true
