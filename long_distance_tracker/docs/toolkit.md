@@ -1,4 +1,4 @@
-# Toolkit — Long Distance Tracker ⚙️
+# Toolkit — Long Distance Tracker 
 
 ## Overview
 
@@ -116,5 +116,6 @@ If a port is already in use, stop the conflicting service or change the port in 
 This repo is intended as an educational toolkit. For questions, open an issue or contact the maintainer.
 
 ---
+
 
 
