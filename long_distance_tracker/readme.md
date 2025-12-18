@@ -1,6 +1,6 @@
 # Long Distance Tracker
 
-A small multi-language **example API** for tracking long-distance activities (runs, rides, etc.). This repository provides four independent implementations of the same API so you can compare idiomatic approaches across ecosystems: **FastAPI (Python)**, **Flask (Python)**, **Node + Express (JavaScript)**, and **Actix (Rust)**.
+A small multi-language **example API** for tracking long-distance activities (runs, rides, etc.). This repository provides four independent implementations of the same API so you can compare idiomatic...
 
 ---
 
@@ -83,6 +83,7 @@ curl -X POST http://localhost:8000/tracks \
 - When modifying the API, update `openapi.yaml` and mirror changes in the implementations.
 - Keep changes scoped to one implementation unless making a cross-cutting improvement or adding tests/examples.
 - If you add persistence, document how to configure it and consider adding integration tests.
+- Additional Documentation: [Google Doc](https://docs.google.com/document/d/1CSV5xCf8PS_a4WWL9n401sDMfpgScKQ5L5wlUSIvaN4/edit?usp=sharing).
 
 ---
 
@@ -98,5 +99,3 @@ curl -X POST http://localhost:8000/tracks \
 This project is intended as an educational toolkit. See the repository LICENSE (if present) for details.
 
 ---
-
-
